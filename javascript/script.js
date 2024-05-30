@@ -59,7 +59,8 @@ function mijnVerlaagwaarde(){
    }
    else if (progressBar.value >= 1){
       let mysteryNumber = Math.random() * 4
-      mysteryNumber = Math.round(mysteryNumber)
+      mysteryNumber = Math.floor(mysteryNumber)
+      console.log(mysteryNumber)
       let enemyAanval = ["30","60","90","120"]
       console.log(enemyAanval[mysteryNumber])
       mijnProgressbar.value = mijnProgressbar.value - enemyAanval[mysteryNumber]
