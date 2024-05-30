@@ -1,0 +1,187 @@
+@font-face {
+    font-family: pokemon;
+    src: url(../Fonts/Pokemon.ttf)
+}
+
+body{
+    background-image:url("../images/standaard.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 0.9em;
+    font-family: pokemon;
+}
+
+/*audio{
+    display: none;
+}
+*/
+body section{
+    box-shadow: 4px 4px white;
+    border-radius: 10px;
+    height: 6em;
+    margin-bottom: 1em;
+    background: linear-gradient(to top, #85929e 10%, #ffffff  11%, #ffffff  17%, #85929e 18%, #85929e 30%, #34495e  31%, #34495e 80%, #85929e  81%,#85929e 100%);
+    border: 0.6em solid #34495e;
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+}
+
+h1{
+    margin-left: 3em;
+}
+
+/*enemy plaatsing*/
+.container{
+    display: flex;
+    justify-content: space-between
+}
+
+/* progress bar */
+progress {
+    border: 0.2em solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+progress ::-moz-progress-bar{
+    accent-color: green;
+}
+
+
+.healthbar{
+    width: 20em;
+    padding: 1em 1.7em;
+    border: 0.6em solid #34495e;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 2px 2px black;
+    box-shadow: 4px 4px white;
+    background: linear-gradient(to top, #34495e 20%, #85929e  21%, #85929e  24%, #34495e 25%, #34495e 27%, #85929e  28%, #85929e  98%);
+}
+
+
+.healthbar p {
+    padding-bottom: 1em;
+}
+
+.huidigepunten{
+    display: flex;
+}
+
+.huidigepunten p{
+    padding-bottom: 0;
+    padding-left: 1em;
+    margin: 0;
+}
+
+
+/* images */
+img{
+    width: 8em;
+    margin: 2em 8em;
+}
+
+/* l */
+fieldset{
+    background: linear-gradient(to top, #34495e 20%, #85929e  21%, #85929e  24%, #34495e 25%, #34495e 27%, #85929e  28%, #85929e  98%);
+    box-shadow: 4px 4px white;
+    padding: 0.4em;
+    border: 0.6em solid #34495e;
+    border-radius: 15px;
+    display: flex;
+    width: 18em;
+    margin-top: 2em;
+}
+
+fieldset label{
+    display: block;
+    width: 13em;
+    height: 2em;
+    margin-right: 0.5em;
+    background-color: white;
+    padding: 0.4em;
+    border: 0.2em solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+fieldset label:hover{
+    padding: 0.6em;
+}
+
+/*timerbox is de oude naam want dit was eerst mijn timer*/
+#timerbox{
+    background: linear-gradient(to top, #85929e 39%, #34495e  40%, #34495e  43%, #85929e 44%, #85929e 48%, #34495e  49%, #34495e  100%);  
+    box-shadow: 4px 4px white;
+    border: 0.6em solid #34495e;
+    color: white;
+    text-shadow: 2px 2px black;
+    width: 35em;
+    padding: 0.5em;
+    border-radius: 15px;
+    margin-bottom: 1em;
+}
+
+#winstverlies {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: white;
+    text-shadow: 1px 1px black;
+}
+
+/*buttons*/
+button{
+    border-radius: 9px;
+    border: 0.2em solid black;
+    width: 8em;
+    background-color: #85929e;
+}
+
+button:hover{
+    background-color: #34495e;
+    color: white;
+}
+
+/* animatie */
+@keyframes turn {
+    0% {
+        transform: rotate(0turn) scale(1);
+    }
+    33% {
+        transform: rotate(0.05turn) scale(1.2) translate(40px);
+    }
+    66% {
+        transform: rotate(-0.05turn) scale(1.2) translate(-40px);
+    }
+    100% {
+        transform: rotate(0turn) scale(1);
+    }
+}
+
+@keyframes verloren {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
+}
+
+@keyframes vergroten {
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(5)
+    }
+}
+/*
+#VenusaurPlaatje {
+    animation: turn 2000ms;
+    animation-iteration-count: infinite;
+  }
+
+#ThyphlosionPlaatje {
+    animation: turn 2000ms;
+    animation-iteration-count: infinite;
+}
+*/

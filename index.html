@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="NL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Pokemon battle</title>
+</head>
+<body>
+    <section>
+        <h1>Pokémon fighter</h1>
+    </section>
+
+    <p id="winstverlies"></p>
+    <div class="container">   
+        <section id="timerbox">
+            <h2>Typhlosion vs Venusaur</h2>
+            <p>Kies een aanval om het gevecht te starten</p>
+        </section>
+
+        <div class="healthbar">
+            <p>VENUSAUR Lv.34</p>
+            <div class="huidigepunten">
+                <label for="#enemy">HP</label>
+                <progress id="enemy" max="200" min="0" value="200"></progress>
+                <p id="huidigewaarde"></p>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container">
+        <img id="ThyphlosionPlaatje" src="images/typhlosion.gif" alt="een sprite van Typhlosion">
+        <img id="VenusaurPlaatje" src="images/venusaur.gif" alt="een sprite van Venusaur">
+    </div>
+
+    <div class="healthbar">
+        <p>TYPHLOSION Lv.34</p>
+        <div class="huidigepunten">
+            <label for="#Thyphlosion">HP</label>
+            <progress id="Thyphlosion" max="200" min="0" value="200"></progress>
+            <p id="mijnhuidigewaarde"></p>
+        </div>    
+    </div>       
+
+    <div>
+        <fieldset id="fieldset" >
+            <label>
+                <input class="aanval" type="radio" name="damage" value="30">Shock
+            </label>
+            <label>
+                <input class="aanval" type="radio" name="damage" value="60">Thunderbolt
+            </label>
+            <label>
+                <input class="aanval" type="radio" name="damage" value="90">Thunder
+            </label>
+            <label>
+                <input class="aanval" type="radio" name="damage" value="120">Spark
+            </label>
+            <button id="pasaanvaltoe">val aan</button>       
+        </fieldset>
+    </div>
+
+    <h2>verander achtergrond</h2>
+    <button id="standaard">standaard</button>
+    <button id="strand">strand</button>
+    <button id="sneeuw">sneeuw</button>
+    <button id="grot">grot</button>
+    <button id="bos">bos</button>
+ 
+    <script src="javascript/script.js"></script>
+</body>
+</html>
