@@ -22,6 +22,7 @@ const grotButton = document.querySelector("#grot")
 let grotAudio = new Audio("Audio/muziek2.mp3")
 const bosButton = document.querySelector("#bos")
 let bosAudio = new Audio("Audio/muziek1.mp3")
+
 //timer functie
 //let timeR = document.querySelector("#timer")
 //let secondsPassed = 60

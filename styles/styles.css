@@ -108,7 +108,7 @@ fieldset label:hover{
 }
 
 /*timerbox is de oude naam want dit was eerst mijn timer*/
-#timerbox{
+#VSBox{
     background: linear-gradient(to top, #85929e 39%, #34495e  40%, #34495e  43%, #85929e 44%, #85929e 48%, #34495e  49%, #34495e  100%);  
     box-shadow: 4px 4px white;
     border: 0.6em solid #34495e;
