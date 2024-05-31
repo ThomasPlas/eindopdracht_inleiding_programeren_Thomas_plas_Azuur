@@ -1,5 +1,27 @@
-//console.log("werkt dit?")
-
+const fieldSet = document.querySelector("#fieldset")
+const progressBar = document.querySelector("#enemy")
+//const aanvaL = document.querySelector(".aanval")
+const pasAanvaltoe = document.querySelector("#pasaanvaltoe")
+let typhlosionAudio = new Audio("Audio/typhlosion.mp3")
+const mijnProgressbar = document.querySelector("#Thyphlosion")
+let venusaurAudio = new Audio("Audio/venusaur.mp3")
+const winstVerlies = document.querySelector("#winstverlies")
+let gewonnenAudio = new Audio("Audio/gewonnen.mp3")
+let verlorenAudio = new Audio("Audio/verloren.mp3")
+const huidigeWaarde = document.querySelector("#huidigewaarde")
+const mijnHuidigeWaarde = document.querySelector("#mijnhuidigewaarde")
+const thyphlosionPlaatje = document.querySelector("#ThyphlosionPlaatje")
+const venusaurPlaatje = document.querySelector("#VenusaurPlaatje")
+const standaardButton = document.querySelector("#standaard")
+let standaardAudio = new Audio("Audio/muziek4.mp3")
+const strandButton = document.querySelector("#strand")
+let strandAudio = new Audio("Audio/muziek3.mp3")
+const sneeuwButton = document.querySelector("#sneeuw")
+let sneeuwAudio = new Audio("Audio/muziek5.mp3")
+const grotButton = document.querySelector("#grot")
+let grotAudio = new Audio("Audio/muziek2.mp3")
+const bosButton = document.querySelector("#bos")
+let bosAudio = new Audio("Audio/muziek1.mp3")
 //timer functie
 //let timeR = document.querySelector("#timer")
 //let secondsPassed = 60
@@ -18,19 +40,11 @@
 //  }
 //}
 
-const fieldSet = document.querySelector("#fieldset")
 function aanvalKlaar(){
    fieldSet.disabled = true
 }
 
 //healthbar
-const progressBar = document.querySelector("#enemy")
-const aanvaL = document.querySelector(".aanval")
-const pasAanvaltoe = document.querySelector("#pasaanvaltoe")
-let typhlosionAudio = new Audio("Audio/typhlosion.mp3")
-
-pasAanvaltoe.addEventListener("click", verlaagWaarde)
-
 function verlaagWaarde(){
    let aanvalWaarde = document.querySelector("input[name='damage']:checked").value
    console.log("aanvalwaarde", aanvalWaarde)
@@ -43,19 +57,18 @@ function verlaagWaarde(){
    typhlosionAudio.play()
    aanvalKlaar()
    setTimeout(mijnVerlaagwaarde,2000)
-   winstOfverlies()
+   winstOfVerlies()
 }
 
+pasAanvaltoe.addEventListener("click", verlaagWaarde)
 //aanval tegenstander
 //let enemyAanval = ["30","60","90","120"]
 
-const mijnProgressbar = document.querySelector("#Thyphlosion")
-let venusaurAudio = new Audio("Audio/venusaur.mp3")
 //https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement/Audio
 
 function mijnVerlaagwaarde(){
    if (progressBar.value <= 0){
-      winstOfverlies()
+      winstOfVerlies()
    }
    else if (progressBar.value >= 1){
       let mysteryNumber = Math.random() * 4
@@ -69,8 +82,8 @@ function mijnVerlaagwaarde(){
       setTimeout(wisselBeurt,2000)
       beweegPlaatje()
       venusaurAudio.play()
-      mijnhuidigeWaarde.textContent = mijnProgressbar.value + "/200"
-      winstOfverlies() 
+      mijnHuidigeWaarde.textContent = mijnProgressbar.value + "/200"
+      winstOfVerlies() 
    }
 }
 
@@ -80,10 +93,6 @@ function wisselBeurt (){
 }
 
 //winnaar
-const winstVerlies = document.querySelector("#winstverlies")
-let gewonnenAudio = new Audio("Audio/gewonnen.mp3")
-let verlorenAudio = new Audio("Audio/verloren.mp3")
-
 function speelVerlorenAudio(){
    verlorenAudio.play()
 }
@@ -93,7 +102,7 @@ function speelGewonnenAudio(){
 }
 
 //wat er gebeurt als je heb verloren of gewonnen
-function winstOfverlies(){
+function winstOfVerlies(){
   if (mijnProgressbar.value === 0){
       winstVerlies.textContent = "Verloren"
       winaarTekstAnimatie()
@@ -116,17 +125,10 @@ function winstOfverlies(){
 console.log(progressBar.value + "/200")
 console.log(mijnProgressbar.value + "/200")
 
-const huidigeWaarde = document.querySelector("#huidigewaarde")
-const mijnhuidigeWaarde = document.querySelector("#mijnhuidigewaarde")
-
 huidigeWaarde.textContent = progressBar.value + "/200"
-mijnhuidigeWaarde.textContent = mijnProgressbar.value + "/200"
-
+mijnHuidigeWaarde.textContent = mijnProgressbar.value + "/200"
 
 //animatie
-const thyphlosionPlaatje = document.querySelector("#ThyphlosionPlaatje")
-const venusaurPlaatje = document.querySelector("#VenusaurPlaatje")
-
 function beweegPlaatje(){
    venusaurPlaatje.style.animation = "turn 2000ms"
 }
@@ -167,6 +169,8 @@ function stopAudio(){
    bosAudio.pause()
    bosAudio.currentTime = 0
 }
+
+//stoppen van audio
 //https://stackoverflow.com/questions/14834520/html5-audio-stop-function
 
 //geluid verlagen
@@ -176,11 +180,6 @@ function stopAudio(){
 //https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement
 
 //standaard achtergrond
-const standaardButton = document.querySelector("#standaard")
-let standaardAudio = new Audio("Audio/muziek4.mp3")
-
-standaardButton.addEventListener("click",standaardAchtergrond)
-
 function standaardAchtergrond(){
    stopAudio()
    document.body.style.backgroundImage = "url('images/standaard.png')"
@@ -188,12 +187,9 @@ function standaardAchtergrond(){
    standaardAudio.volume = 0.3
 }
 
+standaardButton.addEventListener("click",standaardAchtergrond)
+
 //strand achtergrond
-const strandButton = document.querySelector("#strand")
-let strandAudio = new Audio("Audio/muziek3.mp3")
-
-strandButton.addEventListener("click",strandAchtergrond)
-
 function strandAchtergrond(){
    stopAudio()
    document.body.style.backgroundImage = "url('images/strand.png')"
@@ -201,12 +197,9 @@ function strandAchtergrond(){
    strandAudio.volume = 0.3
 }
 
+strandButton.addEventListener("click",strandAchtergrond)
+
 //sneeuw achtergrond
-const sneeuwButton = document.querySelector("#sneeuw")
-let sneeuwAudio = new Audio("Audio/muziek5.mp3")
-
-sneeuwButton.addEventListener("click",sneeuwAchtergrond)
-
 function sneeuwAchtergrond(){
    stopAudio()
    document.body.style.backgroundImage = "url('images/sneeuw.jpeg')"
@@ -214,12 +207,9 @@ function sneeuwAchtergrond(){
    sneeuwAudio.volume = 0.3
 }
 
+sneeuwButton.addEventListener("click",sneeuwAchtergrond)
+
 //grot achtergrond
-const grotButton = document.querySelector("#grot")
-let grotAudio = new Audio("Audio/muziek2.mp3")
-
-grotButton.addEventListener("click",grotAchtergrond)
-
 function grotAchtergrond(){
    stopAudio()
    document.body.style.backgroundImage = "url('images/grot.png')"
@@ -227,15 +217,14 @@ function grotAchtergrond(){
    grotAudio.volume = 0.3
 }
 
+grotButton.addEventListener("click",grotAchtergrond)
+
 //bos achtergrond
-const bosButton = document.querySelector("#bos")
-let bosAudio = new Audio("Audio/muziek1.mp3")
-
-bosButton.addEventListener("click",bosAchtergrond)
-
 function bosAchtergrond(){
    stopAudio()
    document.body.style.backgroundImage = "url('images/bos.jpeg')"
    bosAudio.play()
    bosAudio.volume = 0.3
 }
+
+bosButton.addEventListener("click",bosAchtergrond)
